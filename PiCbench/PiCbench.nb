@@ -1,1 +1,10 @@
-Notebook[{}]
+Notebook[{
+},
+WindowSize->{1350, 669},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TrackCellChangeTimes->False,
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+StyleDefinitions->"Default.nb"
+]
+
