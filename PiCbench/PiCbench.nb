@@ -1,10 +1,470 @@
 Notebook[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PiCbench`\>\"", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MagnitudeList", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"Variable\"\>",
+       HoldForm], 
+      TagBox["\<\"Value\"\>",
+       HoldForm], 
+      TagBox["\<\"Definition\"\>",
+       HoldForm]},
+     {"\<\"$dx\"\>", "1", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$dx", "=", "1"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$dx"],
+       Editable->False]},
+     {"\<\"$nx\"\>", "1024", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$nx", "=", "1024"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$nx"],
+       Editable->False]},
+     {"\<\"$qp\"\>", "0.0004`", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$qp", "=", "0.0004`"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$qp"],
+       Editable->False]},
+     {"\<\"$mp\"\>", "0.0004`", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$mp", "=", "0.0004`"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$mp"],
+       Editable->False]},
+     {"\<\"$np\"\>", "3000", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$np", "=", "3000"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$np"],
+       Editable->False]},
+     {"\<\"$ionMass\"\>", "1836.15267`", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$ionMass", "=", "1836.15267`"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$ionMass"],
+       Editable->False]},
+     {"\<\"$dt\"\>", "1", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$dt", "=", "1"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$dt"],
+       Editable->False]},
+     {"\<\"$a\"\>", "1", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$a", "=", "1"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$a"],
+       Editable->False]},
+     {"\<\"$b\"\>", "1", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$b", "=", "1"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$b"],
+       Editable->False]},
+     {"\<\"$c\"\>", "1", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$c", "=", "1"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$c"],
+       Editable->False]},
+     {"\<\"$charSpeed\"\>", "0.5`", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$charSpeed", "=", "0.5`"}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$charSpeed"],
+       Editable->False]},
+     {"\<\"$charSpeedIons\"\>", "0.01166851557081059`", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$charSpeedIons", ":=", 
+              FractionBox["$charSpeed", 
+               SqrtBox["$ionMass"]]}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$charSpeedIons"],
+       Editable->False]},
+     {"\<\"$lx\"\>", "1024", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$lx", ":=", 
+              RowBox[{"$dx", " ", "$nx"}]}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$lx"],
+       Editable->False]},
+     {"\<\"$wp\"\>", "0.03423265984407288`", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$wp", ":=", 
+              SqrtBox[
+               FractionBox[
+                RowBox[{"$np", " ", 
+                 SuperscriptBox["$qp", "2"], " ", "$a"}], 
+                RowBox[{"$lx", " ", "$mp"}]]]}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$wp"],
+       Editable->False]},
+     {"\<\"$debyeLength\"\>", "14.60593486680443`", 
+      InterpretationBox[GridBox[{
+         {GridBox[{
+            {
+             RowBox[{"$debyeLength", ":=", 
+              FractionBox["$charSpeed", "$wp"]}]}
+           },
+           BaselinePosition->{Baseline, {1, 1}},
+           
+           GridBoxAlignment->{
+            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+           GridBoxItemSize->{"Columns" -> {{
+                Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+             "RowsIndexed" -> {}}]}
+        },
+        BaselinePosition->{Baseline, {1, 1}},
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Definition["$debyeLength"],
+       Editable->False]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {None, {"Variable", "Value", "Definition"}}]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$dx", "::", "usage"}]], "Input"],
+
+Cell[BoxData["\<\"Length of cell size in the x dimenssion\"\>"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PrintConditions", "[", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"Small cell condition - ($dx<<$lx) - 1 << 1024\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[0, 1, 0],
+  FrontFaceColor->RGBColor[0, 1, 0],
+  BackFaceColor->RGBColor[0, 1, 0],
+  GraphicsColor->RGBColor[0, 1, 0],
+  FontColor->RGBColor[0, 1, 0]]], "Print"],
+
+Cell[BoxData[
+ StyleBox["\<\"Small time-step condition - ($dt<<$wp^-1) - 1 << 29.2119\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[1, 0.5, 0],
+  FrontFaceColor->RGBColor[1, 0.5, 0],
+  BackFaceColor->RGBColor[1, 0.5, 0],
+  GraphicsColor->RGBColor[1, 0.5, 0],
+  FontColor->RGBColor[1, 0.5, 0]]], "Print"],
+
+Cell[BoxData[
+ StyleBox["\<\"Big world condition - ($debyeLength<<$lx) - 14.6059 << \
+1024\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[1, 0.5, 0],
+  FrontFaceColor->RGBColor[1, 0.5, 0],
+  BackFaceColor->RGBColor[1, 0.5, 0],
+  GraphicsColor->RGBColor[1, 0.5, 0],
+  FontColor->RGBColor[1, 0.5, 0]]], "Print"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"Null", ",", "Null", ",", "Null"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$charSpeed", "=", "10"}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PrintConditions", "[", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"Small cell condition - ($dx<<$lx) - 1 << 1024\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[0, 1, 0],
+  FrontFaceColor->RGBColor[0, 1, 0],
+  BackFaceColor->RGBColor[0, 1, 0],
+  GraphicsColor->RGBColor[0, 1, 0],
+  FontColor->RGBColor[0, 1, 0]]], "Print"],
+
+Cell[BoxData[
+ StyleBox["\<\"Small time-step condition - ($dt<<$wp^-1) - 1 << 29.2119\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[1, 0.5, 0],
+  FrontFaceColor->RGBColor[1, 0.5, 0],
+  BackFaceColor->RGBColor[1, 0.5, 0],
+  GraphicsColor->RGBColor[1, 0.5, 0],
+  FontColor->RGBColor[1, 0.5, 0]]], "Print"],
+
+Cell[BoxData[
+ StyleBox["\<\"Big world condition - ($debyeLength<<$lx) - 292.119 << \
+1024\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[1, 0, 0],
+  FrontFaceColor->RGBColor[1, 0, 0],
+  BackFaceColor->RGBColor[1, 0, 0],
+  GraphicsColor->RGBColor[1, 0, 0],
+  FontColor->RGBColor[1, 0, 0]]], "Print"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"Null", ",", "Null", ",", "Null"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$charSpeed", "=", "0.5"}], ";"}]], "Input"]
 },
 WindowSize->{1350, 669},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
-FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (October 9, 2015)",
 StyleDefinitions->"Default.nb"
 ]
 
