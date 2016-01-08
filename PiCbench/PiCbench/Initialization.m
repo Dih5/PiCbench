@@ -10,7 +10,7 @@ GaussianParticles1D::usage="Generates a gaussian particle distribution."
 
 Begin["`Private`"] (* Begin Private Context *) 
 
-Options[UniformParticles1D] = {lx -> $lx, np -> $np, vmax -> 2*$charSpeed}
+Options[UniformParticles1D] := {lx -> $lx, np -> $np, vmax -> 2*$charSpeed}
  
 UniformParticles1D[opts : OptionsPattern[]] := 
  Transpose[{RandomVariate[UniformDistribution[{0, OptionValue[lx]}], 
@@ -19,7 +19,7 @@ UniformParticles1D[opts : OptionsPattern[]] :=
     UniformDistribution[{-OptionValue[vmax], OptionValue[vmax]}], 
     OptionValue[np]]}]
     
-Options[CounterDriftParticles1D] = {lx -> $lx, np -> $np, 
+Options[CounterDriftParticles1D] := {lx -> $lx, np -> $np, 
   vmean -> $charSpeed, vsigma -> 0.1}
   
   CounterDriftParticles1D[opts : OptionsPattern[]] := 
@@ -32,7 +32,7 @@ Options[CounterDriftParticles1D] = {lx -> $lx, np -> $np,
       v \[Distributed] BernoulliDistribution[0.5]}], 
     OptionValue[np]]}]
     
- Options[GaussianParticles1D] = {lx -> $lx, np -> $np, vsigma -> 0.1, 
+ Options[GaussianParticles1D] := {lx -> $lx, np -> $np, vsigma -> 0.1, 
   relsigma -> 0.1}
   
   GaussianParticles1D[opts : OptionsPattern[]] := 

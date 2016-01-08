@@ -9,13 +9,13 @@ SmoothPhaseSpacePlot::usage"Plot a smooth kernel distribution of the phase space
 
 Begin["`Private`"] (* Begin Private Context *) 
 
-Options[PhaseSpacePlot] = Options[ListPlot];
+Options[PhaseSpacePlot] := Options[ListPlot];
 PhaseSpacePlot[particleLists_, opts : OptionsPattern[]] :=
     ListPlot[particleLists, opts, AxesLabel -> {"x", "v"}, 
      PlotLabel -> "Particle Phase Space"]
 
 
-Options[SmoothPhaseSpacePlot] = Options[ContourPlot];
+Options[SmoothPhaseSpacePlot] := Options[ContourPlot];
 SmoothPhaseSpacePlot[particles_, opts : OptionsPattern[]] := 
  Block[{d, minV, maxV}, d = SmoothKernelDistribution[particles]; 
   minV = Min[particles[[All, 2]]]; maxV = Max[particles[[All, 2]]]; 
