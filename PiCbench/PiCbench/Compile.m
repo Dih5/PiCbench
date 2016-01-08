@@ -33,7 +33,7 @@ FCompile[f_Function, types_List, ranks_List, addedAsumptions_List: {},
 (*Modes of compilation used by the bencharmk function*)
 FCompileFlavours[f_Function, types_List, ranks_List, 
   addedAsumptions_List: {}] := 
- Block[{comp, compC, compCSpeed, compCSpeedNoSimp},
+ Block[{comp, compC, compCSpeed},
   comp = FCompile[f, types, ranks, addedAsumptions];
   compC = 
    FCompile[f, types, ranks, addedAsumptions, 
@@ -41,25 +41,19 @@ FCompileFlavours[f_Function, types_List, ranks_List,
   compCSpeed = 
    FCompile[f, types, ranks, addedAsumptions, 
     CompilationTarget -> "C", RuntimeOptions -> "Speed"];
-  compCSpeedNoSimp = 
-   FCompile[f, types, ranks, addedAsumptions, 
-    CompilationTarget -> "C", RuntimeOptions -> "Speed", 
-    RemoveIdentities -> False];
-  {f, comp, compC, compCSpeed, compCSpeedNoSimp}]
+  {f, comp, compC, compCSpeed}]
   
 BenchmarkFCompile[{f_Function, types_List, ranks_List, 
    addedAsumptions_List: {}}, args_List, times_Integer] := 
- Block[{comp, compC, compCSpeed, compCSpeedNoSimp},
-  {comp, compC, compCSpeed, compCSpeedNoSimp} = 
+ Block[{comp, compC, compCSpeed},
+  {comp, compC, compCSpeed} = 
    Drop[FCompileFlavours[f, types, ranks], 1];
   {(Table[f @@ args ;, {times}]; // AbsoluteTiming // First)/times,
    (Table[comp @@ args; , {times}]; // AbsoluteTiming // First)/
     times,
    (Table[compC @@ args; , {times}]; // AbsoluteTiming // First)/times,
    (Table[compCSpeed @@ args; , {times}]; // AbsoluteTiming // First)/
-    times,
-   (Table[compCSpeedNoSimp @@ args; , {times}]; // AbsoluteTiming // 
-      First)/times
+    times
    }]
    
 End[] (* End Private Context *)
