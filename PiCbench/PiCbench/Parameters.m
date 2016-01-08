@@ -24,15 +24,17 @@ PrintConditions::usage="Print a priori scale conditions on the PiC magnitudes"
 
 Begin["`Private`"]
 
-$dx = 1;
-$nx = 1024;
-$qp = 4.0*^-4;
-$mp = 4.0*^-4;
-$np = 3000;
-$ionMass = 1836.15267;
-$dt = 1;
-$a = $b = $c = 1;
-$charSpeed = 0.5;(*Note this is used to estimate adequateness. Particles must be initializated according to this to work*)
+$dx := 1;
+$nx := 1024;
+$qp := 4.0*^-4;
+$mp := 4.0*^-4;
+$np := 3000;
+$ionMass := 1836.15267;
+$dt := 1;
+$a := 1;
+$b := 1;
+$c := 1;
+$charSpeed := 0.5;(*Note this is used to estimate adequateness. Particles must be initializated according to this to work*)
 
 
 (*Derived magnitudes*)
