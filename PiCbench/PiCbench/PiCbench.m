@@ -1,4 +1,4 @@
-BeginPackage["PiCbench`",{"PiCbench`Parameters`","PiCbench`Initialization`"}]
+BeginPackage["PiCbench`",{"PiCbench`Parameters`","PiCbench`Initialization`","PiCbench`Plot`"}]
 (* Exported symbols added here with SymbolName::usage *) 
 
 Begin["`Private`"]
