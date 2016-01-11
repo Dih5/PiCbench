@@ -10,7 +10,7 @@ Needs["PiCbench`"]
 (* 1- Compile the functions *)
 compileTime=First[AbsoluteTiming[
 getRho = 
- FCompile[getRho1D[], {_Real}, {2}, CompilationTarget -> "C", 
+ FCompile[GetRho1D[], {_Real}, {2}, CompilationTarget -> "C", 
   RuntimeOptions -> "Speed"];
   
 getE = FCompile[GetE1D[], {_Real}, {1}, {{Re[__], _Real, 1}}, 

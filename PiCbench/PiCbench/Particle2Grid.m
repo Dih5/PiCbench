@@ -1,33 +1,33 @@
 BeginPackage["PiCbench`Particle2Grid`", { "PiCbench`Parameters`"}]
 
 
-getRho1D::usage = "getRho1D[] returns a functions that calculates \
+GetRho1D::usage = "GetRho1D[] returns a functions that calculates \
 rho(particleList). Options include dx,nx,qc. Use with qc=1 to find \
 number density."
 
 
 Begin["`Private`"] (* Begin Private Context *) 
-Options[getRho1D] = {dx -> $dx, nx -> $nx, qp -> $qp, 
+Options[GetRho1D] = {dx -> $dx, nx -> $nx, qp -> $qp, 
    Method -> "First-order"};
-Options[getRho1DFirstOrder] = 
-  Options[getRho1DZeroOrder] = Options[getRho1D];
+Options[GetRho1DFirstOrder] = 
+  Options[GetRho1DZeroOrder] = Options[GetRho1D];
   
-  getRho1D::bdmtd = 
+  GetRho1D::bdmtd = 
   "The Method option `1` is not recognized. Using the default \
 Method.";
 
-getRho1D[opts : OptionsPattern[]] :=
+GetRho1D[opts : OptionsPattern[]] :=
     Block[ {f},
         ReplaceAll[
          f[opts], {f -> 
-           Switch[OptionValue[Method], "First-order", getRho1DFirstOrder, 
-            "Zeroth-order", getRho1DZeroOrder, _, 
-            Message[getRho1D::bdmtd, OptionValue[Method]];
-            getRho1DFirstOrder]
+           Switch[OptionValue[Method], "First-order", GetRho1DFirstOrder, 
+            "Zeroth-order", GetRho1DZeroOrder, _, 
+            Message[GetRho1D::bdmtd, OptionValue[Method]];
+            GetRho1DFirstOrder]
           }]
     ]
     
- getRho1DFirstOrder[opts : OptionsPattern[]] :=
+ GetRho1DFirstOrder[opts : OptionsPattern[]] :=
      Block[ {rho0, dx, qp, nx},
          ReplaceAll[Function[{particles}, Block[ {rho, pos, x, i},
                                               rho = rho0;
@@ -44,7 +44,7 @@ getRho1D[opts : OptionsPattern[]] :=
            nx -> OptionValue[nx], qp -> OptionValue[qp]}]
      ]
     
-getRho1DZeroOrder[opts : OptionsPattern[]] :=
+GetRho1DZeroOrder[opts : OptionsPattern[]] :=
     Block[ {rho0, dx, qp, nx},
         ReplaceAll[Function[{particles}, Block[ {rho, pos, x, i},
                                              rho = rho0;
