@@ -2,10 +2,10 @@
 
 BeginPackage["PiCbench`Plot`",{"PiCbench`Parameters`"}]
 
-PhaseSpacePlot::usage="Plot some lists of particles in the phase space."
-SmoothPhaseSpacePlot::usage"Plot a smooth kernel distribution of the phase space of the list of particles."
+PhaseSpacePlot::usage="Plot some lists of particles in the phase space.";
+SmoothPhaseSpacePlot::usage="Plot a smooth kernel distribution of the phase space of the list of particles.";
 
-
+DebyeMovingAverage::usage="DebyeMovingAverage[particle,factor:1] calculates the moving average using blocks of Floor[factor*$debyeLength] cells.";
 
 Begin["`Private`"] (* Begin Private Context *) 
 
@@ -22,6 +22,9 @@ SmoothPhaseSpacePlot[particles_, opts : OptionsPattern[]] :=
   ContourPlot[
    PDF[d, {x, v}], {x, 0, $lx}, {v, minV, maxV}, opts,
     FrameLabel -> {"x", "v"}, PlotRange -> All]]
+    
+    
+DebyeMovingAverage[particle_,factor_:1]:=MovingAverage[particle, Max[Floor[factor*$debyeLength],1]]
   
 End[] (* End Private Context *)
 
