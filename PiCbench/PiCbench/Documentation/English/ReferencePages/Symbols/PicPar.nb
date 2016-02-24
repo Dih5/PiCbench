@@ -27,7 +27,7 @@ Cell["PiCbench", "Categorization", CellLabel->"Paclet Name", CellID->605800465],
 
 Cell["PiCbench`", "Categorization", CellLabel->"Context", CellID->468444828],
 
-Cell["PiCbench/ref/$charSpeed", "Categorization", CellLabel->"URI"]
+Cell["PiCbench/ref/PicPar", "Categorization", CellLabel->"URI"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -105,12 +105,12 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell[ "$charSpeed", "ObjectName", CellID->1224892054],
+Cell[ "PicPar", "ObjectName", CellID->1224892054],
 
 Cell[TextData[{ 
 Cell["   ", "ModInfo"], 
-Cell[BoxData[ RowBox[{"$charSpeed", "[", "]"}]], "InlineFormula"], 
-" \[LineSeparator]$charSpeed"}], 
+Cell[BoxData[ RowBox[{"PicPar", "[", "]"}]], "InlineFormula"], 
+" \[LineSeparator]PicPar"}], 
 "Usage", CellID->982511436],
 
 Cell["XXXX", "Notes",

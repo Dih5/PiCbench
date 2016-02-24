@@ -1,13 +1,13 @@
 BeginPackage["PiCbench`Particle2Grid`", { "PiCbench`Parameters`"}]
 
 
-GetRho1D::usage = "GetRho1D[] returns a functions that calculates \
-rho(particleList). Options include dx,nx,qc. Use with qc=1 to find \
-number density."
+GetRho1D::usage = "GetRho1D[] returns a functions that calculates rho(particleList).
+Relevant parameters are dx,nx,qc.
+Can also be used with qc=1 to find number density."
 
 
 Begin["`Private`"] (* Begin Private Context *) 
-Options[GetRho1D] = {dx -> $dx, nx -> $nx, qp -> $qp, 
+Options[GetRho1D] = {PicParameters->PicPar, 
    Method -> "First-order"};
 Options[GetRho1DFirstOrder] = 
   Options[GetRho1DZeroOrder] = Options[GetRho1D];
@@ -28,7 +28,7 @@ GetRho1D[opts : OptionsPattern[]] :=
     ]
     
  GetRho1DFirstOrder[opts : OptionsPattern[]] :=
-     Block[ {rho0, dx, qp, nx},
+     Block[ {p=OptionValue[PicParameters],rho0, dx, qp, nx},
          ReplaceAll[Function[{particles}, Block[ {rho, pos, x, i},
                                               rho = rho0;
                                               For[i = 1, i <= Length[particles], i++,
@@ -40,12 +40,12 @@ GetRho1D[opts : OptionsPattern[]] :=
                                               rho[[1]] += rho[[nx + 1]];
                                               Drop[rho, -1]*qp/dx
                                           ]], {rho0 -> 
-            Table[0.0, {OptionValue[nx] + 1}], dx -> OptionValue[dx], 
-           nx -> OptionValue[nx], qp -> OptionValue[qp]}]
+            Table[0.0, {p["nx"] + 1}], dx -> p["dx"], 
+           nx -> p["nx"], qp -> p["qp"]}]
      ]
     
 GetRho1DZeroOrder[opts : OptionsPattern[]] :=
-    Block[ {rho0, dx, qp, nx},
+    Block[ {p=OptionValue[PicParameters],rho0, dx, qp, nx},
         ReplaceAll[Function[{particles}, Block[ {rho, pos, x, i},
                                              rho = rho0;
                                              For[i = 1, i <= Length[particles], i++,
@@ -56,8 +56,8 @@ GetRho1DZeroOrder[opts : OptionsPattern[]] :=
                                              rho[[1]] += rho[[nx + 1]];
                                              Drop[rho, -1]*qp/dx
                                          ]], {rho0 -> 
-           Table[0.0, {OptionValue[nx] + 1}], dx -> OptionValue[dx], 
-          nx -> OptionValue[nx], qp -> OptionValue[qp]}]
+           Table[0.0, {p["nx"] + 1}], dx -> p["dx"], 
+           nx -> p["nx"], qp -> p["qp"]}]
     ]
 End[] (* End Private Context *)
 

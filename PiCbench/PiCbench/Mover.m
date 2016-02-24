@@ -1,19 +1,18 @@
 BeginPackage["PiCbench`Mover`", { "PiCbench`Parameters`"}]
 
 StepParticles1DES::usage="StepParticles1DES[r] returns a function that calculates nextParticles(ElectricField,Particles) for particles with chargemass ratio=r*qp/mp.
-Options include lx,dt,qp,mp.
+Relevant parameters are lx,dt,qp,mp.
 Methods available are ExplicitEuler and SemiImplicitEuler";
 
 Begin["`Private`"] (* Begin Private Context *) 
 
-Options[StepParticles1DES] = {lx -> $lx, dt -> $dt, qp -> $qp, 
-  mp -> $mp, Method -> "SemiImplicitEuler"}
+Options[StepParticles1DES] = {PicParameters->PicPar, Method -> "SemiImplicitEuler"}
 StepParticles1DES::bdmtd = "The Method option `1` is not recognized. \
 Using the default Method."
 
 (*Notice Listable property is widely used here*)
 StepParticles1DES[relChargeMass_, opts : OptionsPattern[]] := 
- Block[{vMethod, qp, mp, lx, dt}, 
+ Block[{p=OptionValue[PicParameters],vMethod, qp, mp, lx, dt}, 
   ReplaceAll[
    Function[{eField, particles}, 
     Block[{xList, vList, pointLeft, pointRight, EInterp, v2},
@@ -26,8 +25,8 @@ StepParticles1DES[relChargeMass_, opts : OptionsPattern[]] :=
        eField[[pointRight]] (xList - pointLeft);
      v2 = vList + relChargeMass*qp/mp* EInterp*dt;
      Transpose[{Mod[xList + vMethod[vList, v2]*dt, lx], v2}]
-     ]], {lx -> OptionValue[lx], dt -> OptionValue[dt], 
-    qp -> OptionValue[qp], mp -> OptionValue[mp], 
+     ]], {lx -> p["lx"], dt -> p["dt"], 
+    qp -> p["qp"], mp -> p["mp"], 
     vMethod[a_, b_] -> 
      Switch[OptionValue[Method], "ExplicitEuler", a, 
       "SemiImplicitEuler", b, _, 

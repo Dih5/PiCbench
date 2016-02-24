@@ -20,15 +20,15 @@ stepElectrons =
   FCompile[StepParticles1DES[-1], {_Real, _Real}, {1, 2}, 
    CompilationTarget -> "C", RuntimeOptions -> "Speed"];
 stepIons = 
-  FCompile[StepParticles1DES[1/$ionMass], {_Real, _Real}, {1, 2}, 
+  FCompile[StepParticles1DES[1/PicPar["ionMass"]], {_Real, _Real}, {1, 2}, 
    CompilationTarget -> "C", RuntimeOptions -> "Speed"];
    ]];
    
 Print["Compilation finished in "<>ToString[compileTime]]
 
 (* 2- Simulation cycle *)
-electrons = UniformParticles1D[vmax -> $charSpeed*2];
-ions = UniformParticles1D[vmax -> $charSpeedIons*2];
+electrons = UniformParticles1D[];
+ions = UniformParticles1D[UseIonDefaults -> True];
 nSubsteps = 3;(*Steps in time dt done before saving data for diagnostics*)
 nSteps = 30;(*Number of cycles repeating the previous*)
 
@@ -77,13 +77,13 @@ exportTime =
    Export[FileNameJoin[{ExportDirectory, "electrons.gif"}], 
     Table[ListPlot[electronsList[[i]], AxesLabel -> {"x", "v"}, 
       PlotLabel -> 
-       "Electron Phase Space\nt = " <> ToString[i*$dt]], {i, 1, 
+       "Electron Phase Space\nt = " <> ToString[i*PicPar["dt"]]], {i, 1, 
       Length[electronsList], 1}]];
    Export[FileNameJoin[{ExportDirectory, "electronsSmooth.gif"}], 
     Table[
      SmoothPhaseSpacePlot[electronsList[[i]], AxesLabel -> {"x", "v"},
        PlotLabel -> 
-       "Electron Phase Space\nt = " <> ToString[i*$dt]], {i, 1, 
+       "Electron Phase Space\nt = " <> ToString[i*PicPar["dt"]]], {i, 1, 
       Length[electronsList], 1}]];]]
 
 Print["Exporting finished in "<>ToString[exportTime]]

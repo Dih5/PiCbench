@@ -15,16 +15,19 @@ PhaseSpacePlot[particleLists_, opts : OptionsPattern[]] :=
      PlotLabel -> "Particle Phase Space"]
 
 
-Options[SmoothPhaseSpacePlot] := Options[ContourPlot];
+Options[SmoothPhaseSpacePlot] := Union[Options[ContourPlot],{PicParameters->PicPar}];
+
 SmoothPhaseSpacePlot[particles_, opts : OptionsPattern[]] := 
- Block[{d, minV, maxV}, d = SmoothKernelDistribution[particles]; 
+ Block[{p,d, minV, maxV},p=OptionValue[PicParameters]; d = SmoothKernelDistribution[particles]; 
   minV = Min[particles[[All, 2]]]; maxV = Max[particles[[All, 2]]]; 
   ContourPlot[
-   PDF[d, {x, v}], {x, 0, $lx}, {v, minV, maxV}, opts,
+   PDF[d, {x, v}], {x, 0, p["lx"]}, {v, minV, maxV}, opts,
     FrameLabel -> {"x", "v"}, PlotRange -> All]]
     
-    
-DebyeMovingAverage[particle_,factor_:1]:=MovingAverage[particle, Max[Floor[factor*$debyeLength],1]]
+Options[DebyeMovingAverage]:={PicParameters->PicPar}
+DebyeMovingAverage[particle_,factor_:1,opts : OptionsPattern[]]:=Block[{p},p=OptionValue[PicParameters];
+	MovingAverage[particle, Max[Floor[factor*p["debyeLength"]],1]]
+]
   
 End[] (* End Private Context *)
 

@@ -27,7 +27,7 @@ Cell["PiCbench", "Categorization", CellLabel->"Paclet Name", CellID->605800465],
 
 Cell["PiCbench`", "Categorization", CellLabel->"Context", CellID->468444828],
 
-Cell["PiCbench/ref/$nx", "Categorization", CellLabel->"URI"]
+Cell["PiCbench/ref/UseIonDefaults", "Categorization", CellLabel->"URI"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -105,12 +105,12 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell[ "$nx", "ObjectName", CellID->1224892054],
+Cell[ "UseIonDefaults", "ObjectName", CellID->1224892054],
 
 Cell[TextData[{ 
 Cell["   ", "ModInfo"], 
-Cell[BoxData[ RowBox[{"$nx", "[", "]"}]], "InlineFormula"], 
-" \[LineSeparator]$nx"}], 
+Cell[BoxData[ RowBox[{"UseIonDefaults", "[", "]"}]], "InlineFormula"], 
+" \[LineSeparator]UseIonDefaults"}], 
 "Usage", CellID->982511436],
 
 Cell["XXXX", "Notes",

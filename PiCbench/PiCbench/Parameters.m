@@ -1,47 +1,61 @@
 BeginPackage["PiCbench`Parameters`"]
 (* Exported symbols added here with SymbolName::usage *) 
 
-$dx::usage="Length of cell size in the x dimenssion";
-$nx::usage="Number of cells";
-$qp::usage="Charge of a macroparticle (absolute value)";
-$mp::usage="Mass of electron macroparticle";
-$np::usage="Number of particles";
-$ionMass::usage="Relative mass of ion species/mass of electrons";
-$dt::usage="Temporal step";
-$a::usage="Charge dimenssion in the Maxwell equations";
-$b::usage="Relative dimension of the magnetic field in the maxwell equations";
-$c::usage="Speed of light";
+PicPar::usage="Default parameters used by PiCbench. To set them use e.g. PicPar[\"dx\"]=1.";
+CreatePicPar::usage="CreatePicPar[] creates a new parameter set. Useful if working with more than one, otherwise stick to PicPar, which is used by default."
 
-$charSpeed::usage="A characteristic speed of the electrons in the plasma.";
-
-$charSpeedIons::usage="Ion characteristic speed (derived magnitude)";
-$lx::usage="System length (derived magnitude)";
-$wp::usage="Plasma frecuency (derived magnitude)";
-$debyeLength::usage="Debye length (derived magnitude)";
+PicParameters::usage="PicParameters is an option for some PicBench functions determining which parameter set to use."
+UseIonDefaults::usage="UseIonDefaults is an option for some PicBench functions determining whether ion or electron parameters are used."
 
 MagnitudeList::usage="Prints a list of the PiC magnitudes"
 PrintConditions::usage="Print a priori scale conditions on the PiC magnitudes"
 
 Begin["`Private`"]
 
-$dx := 1;
-$nx := 1024;
-$qp := 4.0*^-4;
-$mp := 4.0*^-4;
-$np := 3000;
-$ionMass := 1836.15267;
-$dt := 1;
-$a := 1;
-$b := 1;
-$c := 1;
-$charSpeed := 0.5;(*Note this is used to estimate adequateness. Particles must be initializated according to this to work*)
+(*TODO: add options to override values on call*)
+CreatePicPar[PicPar_]:=Block[{},
+(*Descriptions*)
+PicPar["dx","Description"]="Length of cell size in the x dimension";
+PicPar["nx","Description"]="Number of cells";
+PicPar["qp","Description"]="Charge of a macroparticle (absolute value)";
+PicPar["mp","Description"]="Mass of electron macroparticle";
+PicPar["np","Description"]="Number of particles";
+PicPar["ionMass","Description"]="Relative mass of ion species/mass of electrons";
+PicPar["dt","Description"]="Temporal step";
+PicPar["a","Description"]="Charge dimenssion in the Maxwell equations";
+PicPar["b","Description"]="Relative dimension of the magnetic field in the maxwell equations";
+PicPar["c","Description"]="Speed of light";
+PicPar["charSpeed","Description"]="A characteristic speed of the electrons in the plasma.";
 
+PicPar["charSpeedIons","Description"]="Ion characteristic speed (derived magnitude)";
+PicPar["lx","Description"]="System length (derived magnitude)";
+PicPar["wp","Description"]="Plasma frecuency (derived magnitude)";
+PicPar["debyeLength","Description"]="Debye length (derived magnitude)";
 
-(*Derived magnitudes*)
-$charSpeedIons := $charSpeed/Sqrt[$ionMass]
-$lx := $dx*$nx
-$wp := Sqrt[$np/$lx*$qp^2/$mp*$a]
-$debyeLength := $charSpeed/$wp
+(*Default values*)
+PicPar["dx"]=1;
+PicPar["nx"]=1024;
+PicPar["qp"]=4.0*^-4;
+PicPar["mp"]=4.0*^-4;
+PicPar["np"]=3000;
+PicPar["ionMass"]=1836.15267;
+PicPar["dt"]=1;
+PicPar["a"]=1;
+PicPar["b"]=1;
+PicPar["c"]=1;
+PicPar["charSpeed"]=0.5;(*Note this is used to estimate adequateness. Particles must be initializated according to this to work*)
+
+(*Derived*)
+PicPar["charSpeedIons"] := PicPar["charSpeed"]/Sqrt[PicPar["ionMass"]];
+PicPar["lx"] := PicPar["dx"]*PicPar["nx"];
+PicPar["wp"] := Sqrt[PicPar["np"]/PicPar["lx"]*PicPar["qp"]^2/PicPar["mp"]*PicPar["a"]];
+PicPar["debyeLength"] := PicPar["charSpeed"]/PicPar["wp"];
+]
+
+CreatePicPar[PicPar_,AddedRules_List]:=Block[{},CreatePicPar[PicPar];(PicPar[#[[1]]] = #[[2]]) & /@ AddedRules]
+
+CreatePicPar[PicPar]
+
 
 PrintMuchLessCondition[name_String, less_, more_] := 
  Print[Style[
@@ -55,16 +69,20 @@ PrintAroundCondition[name_String, t1_, t2_] :=
    Switch[Max[t1, t2]/Min[t1, t2], a_ /; a < 5, Green, a_ /; a < 10, 
     Orange, _, Red]]]
 
-(*TODO: Add usage of variables here*)
-MagnitudeList[]:=TableForm[{#, Symbol[#], Definition[#]} & /@ {"$dx","$nx","$qp","$mp","$np","$ionMass","$dt","$a","$b","$c","$charSpeed","$charSpeedIons",
-				  "$lx","$wp","$debyeLength"},TableHeadings -> {None, {"Variable", "Value", "Definition"}}]
 
-PrintConditions[]:={PrintMuchLessCondition[
-   "Small cell condition - ($dx<<$lx)", $dx, $lx], 
+MagnitudeList[]:=MagnitudeList[PicPar]
+MagnitudeList[PicPar_]:=TableForm[{#, PicPar[#], PicPar[#, "Description"]} & /@ {"dx", "nx", 
+   "qp", "mp", "np", "ionMass", "dt", "a", "b", "c", "charSpeed", 
+   "charSpeedIons", "lx", "wp", "debyeLength"}, 
+ TableHeadings -> {None, {"Variable", "Value", "Description"}}]
+
+PrintConditions[]:=PrintConditions[PicPar]
+PrintConditions[PicPar_]:=Block[{},{PrintMuchLessCondition[
+   "Small cell condition - (dx<<lx)", PicPar["dx"], PicPar["lx"]], 
   PrintMuchLessCondition[
-   "Small time-step condition - ($dt<<$wp^-1)", $dt, $wp^-1], 
+   "Small time-step condition - (dt<<wp^-1)", PicPar["dt"], PicPar["wp"]^-1], 
   PrintMuchLessCondition[
-   "Big world condition - ($debyeLength<<$lx)", $debyeLength, $lx]};
+   "Big world condition - (debyeLength<<lx)", PicPar["debyeLength"], PicPar["lx"]]};]
 
 End[]
 
