@@ -6,9 +6,11 @@ Methods available are ExplicitEuler and SemiImplicitEuler";
 
 Begin["`Private`"] (* Begin Private Context *) 
 
-Options[StepParticles1DES] = {PicParameters->PicPar, Method -> "SemiImplicitEuler"}
+Options[StepParticles1DES] = {PicParameters->PicPar, UseIonDefaults->False, Method -> "SemiImplicitEuler"}
 StepParticles1DES::bdmtd = "The Method option `1` is not recognized. \
 Using the default Method."
+
+StepParticles1DES[opts : OptionsPattern[]]:=StepParticles1DES[1,opts]
 
 (*Notice Listable property is widely used here*)
 StepParticles1DES[relChargeMass_, opts : OptionsPattern[]] := 
@@ -26,7 +28,8 @@ StepParticles1DES[relChargeMass_, opts : OptionsPattern[]] :=
      v2 = vList + relChargeMass*qp/mp* EInterp*dt;
      Transpose[{Mod[xList + vMethod[vList, v2]*dt, lx], v2}]
      ]], {lx -> p["lx"], dt -> p["dt"], 
-    qp -> p["qp"], mp -> p["mp"], 
+    qp -> If[OptionValue[UseIonDefaults]===True,1,-1]*p["qp"],
+    mp -> If[OptionValue[UseIonDefaults]===True,p["ionRelMass"],1]*p["mp"], 
     vMethod[a_, b_] -> 
      Switch[OptionValue[Method], "ExplicitEuler", a, 
       "SemiImplicitEuler", b, _, 
