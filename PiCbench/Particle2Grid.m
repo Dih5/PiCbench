@@ -1,7 +1,7 @@
 BeginPackage["PiCbench`Particle2Grid`", { "PiCbench`Parameters`"}]
 
 
-GetRho1D::usage = "GetRho1D[] returns a functions that calculates rho(particleList).
+GetRho1D::usage = "GetRho1D[] returns a function that calculates rho(particleList).
 Relevant parameters are dx,nx,qc.
 Can also be used with qc=1 to find number density."
 
