@@ -1,7 +1,27 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21660,        781]
+NotebookOptionsPosition[     16809,        606]
+NotebookOutlinePosition[     17432,        630]
+CellTagsIndexPosition[     17353,        625]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
 Notebook[{
 Cell[TextData[{
  "New in: ",
- Cell["0.1", "HistoryData", CellTags -> "New"],
+ Cell["0.1", "HistoryData",
+  CellTags->"New"],
  " | Modified in: ",
  Cell[" ", "HistoryData",
   CellTags->"Modified"],
@@ -23,11 +43,16 @@ Cell["Symbol", "Categorization",
  CellLabel->"Entity Type",
  CellID->686433507],
 
-Cell["PiCbench", "Categorization", CellLabel->"Paclet Name", CellID->605800465],
+Cell["PiCbench", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
 
-Cell["PiCbench`", "Categorization", CellLabel->"Context", CellID->468444828],
+Cell["PiCbench`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
 
-Cell["PiCbench/ref/PicPar", "Categorization", CellLabel->"URI"]
+Cell["PiCbench/ref/PicPar", "Categorization",
+ CellLabel->"URI"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -105,13 +130,26 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell[ "PicPar", "ObjectName", CellID->1224892054],
+Cell["PicPar", "ObjectName",
+ CellID->1224892054],
 
-Cell[TextData[{ 
-Cell["   ", "ModInfo"], 
-Cell[BoxData[ RowBox[{"PicPar", "[", "]"}]], "InlineFormula"], 
-" \[LineSeparator]PicPar"}], 
-"Usage", CellID->982511436],
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData["PicPar"], "InlineFormula"],
+ " \[LineSeparator]represents the default set of parameters for PiCbench.\n",
+ Cell["      ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"PicPar", "[", 
+   StyleBox["parName", "TI"], "]"}]], "InlineFormula"],
+ "\[LineSeparator]returns the value of the parameter named ",
+ Cell[BoxData[
+  StyleBox["parName", "TI"]], "InlineFormula",
+  FormatType->"StandardForm"],
+ " (a string)."
+}], "Usage",
+ CellChangeTimes->{{3.665381948852265*^9, 3.6653819758865747`*^9}, {
+  3.665382229165997*^9, 3.6653823185906897`*^9}},
+ CellID->982511436],
 
 Cell["XXXX", "Notes",
  CellID->1067943069]
@@ -149,8 +187,21 @@ Cell[CellGroupData[{
 Cell["See Also", "SeeAlsoSection",
  CellID->1255426704],
 
-Cell["XXXX", "SeeAlso",
- CellID->929782353]
+Cell[TextData[Cell[BoxData[
+ ButtonBox["MagnitudeList",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:PiCbench/ref/MagnitudeList"]], "InlineFormula"]], "SeeAlso",
+ CellChangeTimes->{{3.665382389880872*^9, 3.665382405242556*^9}},
+ CellID->929782353],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["CreatePicPar",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:PiCbench/ref/CreatePicPar"]], "InlineFormula"]], "SeeAlso",
+ CellChangeTimes->{{3.665382389880872*^9, 3.665382407235408*^9}},
+ CellID->39093309]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -161,6 +212,8 @@ Cell["More About", "MoreAboutSection",
 Cell["XXXX", "MoreAbout",
  CellID->1665078683]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -174,6 +227,110 @@ Cell[BoxData[
    }],
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PiCbench`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->105761778],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MagnitudeList", "[", "PicPar", "]"}]], "Input",
+ CellChangeTimes->{{3.6653820012161508`*^9, 3.665382007209309*^9}},
+ CellLabel->"In[2]:=",
+ CellID->98300611],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"Variable\"\>",
+       HoldForm], 
+      TagBox["\<\"Value\"\>",
+       HoldForm], 
+      TagBox["\<\"Description\"\>",
+       HoldForm]},
+     {"\<\"dx\"\>", "1", "\<\"Length of cell size in the x dimension\"\>"},
+     {"\<\"nx\"\>", "1024", "\<\"Number of cells\"\>"},
+     {"\<\"qp\"\>", 
+      "0.0004`", "\<\"Charge of a macroparticle (absolute value)\"\>"},
+     {"\<\"mp\"\>", "0.0004`", "\<\"Mass of electron macroparticle\"\>"},
+     {"\<\"np\"\>", "3000", "\<\"Number of particles\"\>"},
+     {"\<\"ionMass\"\>", 
+      "1836.15267`", "\<\"Relative mass of ion species/mass of electrons\"\>"},
+     {"\<\"dt\"\>", "1", "\<\"Temporal step\"\>"},
+     {"\<\"a\"\>", "1", "\<\"Charge dimenssion in the Maxwell equations\"\>"},
+     {"\<\"b\"\>", 
+      "1", "\<\"Relative dimension of the magnetic field in the maxwell \
+equations\"\>"},
+     {"\<\"c\"\>", "1", "\<\"Speed of light\"\>"},
+     {"\<\"charSpeed\"\>", 
+      "0.5`", "\<\"A characteristic speed of the electrons in the \
+plasma.\"\>"},
+     {"\<\"charSpeedIons\"\>", 
+      "0.01166851557081059`", "\<\"Ion characteristic speed (derived \
+magnitude)\"\>"},
+     {"\<\"lx\"\>", "1024", "\<\"System length (derived magnitude)\"\>"},
+     {"\<\"wp\"\>", 
+      "0.03423265984407288`", "\<\"Plasma frecuency (derived magnitude)\"\>"},
+     {"\<\"debyeLength\"\>", 
+      "14.60593486680443`", "\<\"Debye length (derived magnitude)\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {
+     None, {"Variable", "Value", "Description"}}]]]], "Output",
+ CellChangeTimes->{3.665382008271843*^9, 3.6653823737055054`*^9},
+ CellLabel->"Out[2]//TableForm=",
+ CellID->654930257]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PicPar", "[", "\"\<np\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6653820137784557`*^9, 3.665382019616444*^9}},
+ CellLabel->"In[3]:=",
+ CellID->245082688],
+
+Cell[BoxData["3000"], "Output",
+ CellChangeTimes->{3.6653820200070868`*^9, 3.665382373736759*^9},
+ CellLabel->"Out[3]=",
+ CellID->249170903]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PicPar", "[", 
+  RowBox[{"\"\<np\>\"", ",", "\"\<Description\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6653822010832815`*^9, 3.665382208765334*^9}},
+ CellLabel->"In[4]:=",
+ CellID->74338199],
+
+Cell[BoxData["\<\"Number of particles\"\>"], "Output",
+ CellChangeTimes->{{3.665382204116007*^9, 3.665382209265362*^9}, 
+   3.6653823737680087`*^9},
+ CellLabel->"Out[4]=",
+ CellID->695053853]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -214,10 +371,222 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSection",
  CellID->258228157],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
   $Line = 0; Null]], "ExampleSection",
  CellID->2123667759],
+
+Cell["Check PicPar works like a dictionary", "ExampleText",
+ CellChangeTimes->{{3.665382042504329*^9, 3.665382070794381*^9}, {
+  3.6653821878612323`*^9, 3.6653821905000515`*^9}},
+ CellID->250122957],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Definition", "[", "PicPar", "]"}]], "Input",
+ CellChangeTimes->{{3.6653819796367555`*^9, 3.665381984738823*^9}},
+ CellLabel->"In[1]:=",
+ CellID->54066714],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {GridBox[{
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"a\"\>", "]"}], "=", "1"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"b\"\>", "]"}], "=", "1"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"c\"\>", "]"}], "=", "1"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"charSpeed\"\>", "]"}], "=", "0.5`"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"charSpeedIons\"\>", "]"}], "=", 
+         FractionBox[
+          RowBox[{"PicPar", "[", "\<\"charSpeed\"\>", "]"}], 
+          SqrtBox[
+           RowBox[{"PicPar", "[", "\<\"ionMass\"\>", "]"}]]]}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"debyeLength\"\>", "]"}], "=", 
+         FractionBox[
+          RowBox[{"PicPar", "[", "\<\"charSpeed\"\>", "]"}], 
+          RowBox[{"PicPar", "[", "\<\"wp\"\>", "]"}]]}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"dt\"\>", "]"}], "=", "1"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"dx\"\>", "]"}], "=", "1"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"ionMass\"\>", "]"}], "=", 
+         "1836.15267`"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"lx\"\>", "]"}], "=", 
+         RowBox[{
+          RowBox[{"PicPar", "[", "\<\"dx\"\>", "]"}], " ", 
+          RowBox[{"PicPar", "[", "\<\"nx\"\>", "]"}]}]}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"mp\"\>", "]"}], "=", "0.0004`"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"np\"\>", "]"}], "=", "3000"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"nx\"\>", "]"}], "=", "1024"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"qp\"\>", "]"}], "=", "0.0004`"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", "\<\"wp\"\>", "]"}], "=", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{
+            RowBox[{"PicPar", "[", "\<\"np\"\>", "]"}], " ", 
+            SuperscriptBox[
+             RowBox[{"PicPar", "[", "\<\"qp\"\>", "]"}], "2"], " ", 
+            RowBox[{"PicPar", "[", "\<\"a\"\>", "]"}]}], 
+           RowBox[{
+            RowBox[{"PicPar", "[", "\<\"lx\"\>", "]"}], " ", 
+            RowBox[{"PicPar", "[", "\<\"mp\"\>", "]"}]}]]]}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"a\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Charge dimenssion in the Maxwell equations\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"b\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Relative dimension of the magnetic field in the maxwell \
+equations\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"c\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Speed of light\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"charSpeed\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"A characteristic speed of the electrons in the \
+plasma.\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"charSpeedIons\"\>", ",", "\<\"Description\"\>"}], 
+          "]"}], "=", "\<\"Ion characteristic speed (derived \
+magnitude)\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"debyeLength\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Debye length (derived magnitude)\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"dt\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Temporal step\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"dx\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Length of cell size in the x dimension\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"ionMass\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Relative mass of ion species/mass of electrons\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"lx\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"System length (derived magnitude)\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"mp\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Mass of electron macroparticle\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"np\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Number of particles\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"nx\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Number of cells\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"qp\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Charge of a macroparticle (absolute value)\"\>"}]},
+       {" "},
+       {
+        RowBox[{
+         RowBox[{"PicPar", "[", 
+          RowBox[{"\<\"wp\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+         "=", "\<\"Plasma frecuency (derived magnitude)\"\>"}]}
+      },
+      BaselinePosition->{Baseline, {1, 1}},
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{"Columns" -> {{
+           Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  Definition[PiCbench`Parameters`PicPar],
+  Editable->False]], "Output",
+ CellChangeTimes->{3.665381985206688*^9, 3.665382373893015*^9},
+ CellLabel->"Out[1]=",
+ CellID->10316091]
+}, Open  ]]
+}, Open  ]],
 
 Cell[BoxData[
  InterpretationBox[Cell["Possible Issues", "ExampleSection"],
@@ -235,8 +604,187 @@ Cell[BoxData[
  CellID->589267740]
 }, Open  ]]
 },
-WindowSize->{700, 770},
+WindowSize->{700, 725},
 WindowMargins->{{4, Automatic}, {Automatic, 0}},
 CellContext->"Global`",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb"]
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "WindowsANSI"]
 ]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[8470, 336, 100, 2, 53, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 17215, 618}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 325, 14, 22, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[908, 38, 68, 1, 27, "CategorizationSection",
+ CellID->1122911449],
+Cell[979, 41, 79, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1061, 45, 81, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1145, 49, 78, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1226, 53, 64, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1327, 59, 55, 1, 17, "KeywordsSection",
+ CellID->477174294],
+Cell[1385, 62, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1467, 68, 65, 1, 17, "TemplatesSection",
+ CellID->1872225408],
+Cell[1535, 71, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1632, 75, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1717, 79, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1801, 83, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1920, 90, 53, 1, 17, "DetailsSection",
+ CellID->307771771],
+Cell[1976, 93, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2042, 97, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2114, 101, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2181, 105, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2253, 109, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2317, 113, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2381, 117, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2447, 121, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2528, 125, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2632, 132, 49, 1, 62, "ObjectName",
+ CellID->1224892054],
+Cell[2684, 135, 609, 16, 107, "Usage",
+ CellID->982511436],
+Cell[3296, 153, 42, 1, 23, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3375, 159, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[3435, 162, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3517, 168, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[3603, 171, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3698, 177, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[3766, 180, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3852, 186, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[3910, 189, 249, 6, 19, "SeeAlso",
+ CellID->929782353],
+Cell[4162, 197, 246, 6, 19, "SeeAlso",
+ CellID->39093309]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4445, 208, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[4505, 211, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4588, 217, 356, 11, 68, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[4947, 230, 117, 3, 27, "Input",
+ CellID->105761778],
+Cell[CellGroupData[{
+Cell[5089, 237, 181, 4, 27, "Input",
+ CellID->98300611],
+Cell[5273, 243, 2339, 57, 248, "Output",
+ CellID->654930257]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7649, 305, 179, 4, 27, "Input",
+ CellID->245082688],
+Cell[7831, 311, 140, 3, 25, "Output",
+ CellID->249170903]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8008, 319, 219, 5, 27, "Input",
+ CellID->74338199],
+Cell[8230, 326, 191, 4, 25, "Output",
+ CellID->695053853]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8470, 336, 100, 2, 53, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[8573, 340, 125, 3, 30, "ExampleSection",
+ CellID->1293636265],
+Cell[8701, 345, 148, 3, 18, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[8874, 352, 127, 3, 18, "ExampleSection",
+ CellID->2061341341],
+Cell[9004, 357, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[9137, 362, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[9282, 368, 131, 3, 18, "ExampleSection",
+ CellID->258228157],
+Cell[CellGroupData[{
+Cell[9438, 375, 142, 3, 18, "ExampleSection",
+ CellID->2123667759],
+Cell[9583, 380, 198, 3, 20, "ExampleText",
+ CellID->250122957],
+Cell[CellGroupData[{
+Cell[9806, 387, 178, 4, 27, "Input",
+ CellID->54066714],
+Cell[9987, 393, 6366, 193, 1049, "Output",
+ CellID->10316091]
+}, Open  ]]
+}, Open  ]],
+Cell[16380, 590, 135, 3, 30, "ExampleSection",
+ CellID->1305812373],
+Cell[16518, 595, 140, 3, 18, "ExampleSection",
+ CellID->1653164318],
+Cell[16661, 600, 132, 3, 18, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,7 +1,27 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19260,        667]
+NotebookOptionsPosition[     14276,        490]
+NotebookOutlinePosition[     14900,        514]
+CellTagsIndexPosition[     14821,        509]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
 Notebook[{
 Cell[TextData[{
  "New in: ",
- Cell["0.1", "HistoryData", CellTags -> "New"],
+ Cell["0.1", "HistoryData",
+  CellTags->"New"],
  " | Modified in: ",
  Cell[" ", "HistoryData",
   CellTags->"Modified"],
@@ -23,11 +43,16 @@ Cell["Symbol", "Categorization",
  CellLabel->"Entity Type",
  CellID->686433507],
 
-Cell["PiCbench", "Categorization", CellLabel->"Paclet Name", CellID->605800465],
+Cell["PiCbench", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
 
-Cell["PiCbench`", "Categorization", CellLabel->"Context", CellID->468444828],
+Cell["PiCbench`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
 
-Cell["PiCbench/ref/RemoveIdentities", "Categorization", CellLabel->"URI"]
+Cell["PiCbench/ref/RemoveIdentities", "Categorization",
+ CellLabel->"URI"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -105,13 +130,24 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell[ "RemoveIdentities", "ObjectName", CellID->1224892054],
+Cell["RemoveIdentities", "ObjectName",
+ CellID->1224892054],
 
-Cell[TextData[{ 
-Cell["   ", "ModInfo"], 
-Cell[BoxData[ RowBox[{"RemoveIdentities", "[", "]"}]], "InlineFormula"], 
-" \[LineSeparator]RemoveIdentities"}], 
-"Usage", CellID->982511436],
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData["RemoveIdentities"], "InlineFormula"],
+ " \[LineSeparator]RemoveIdentities is an option for ",
+ Cell[BoxData[
+  ButtonBox["FCompile",
+   BaseStyle->"Link",
+   ButtonData->"paclet:PiCbench/ref/FCompile"]], "InlineFormula"],
+ " that specifies whether elemental algebraic symplifications should be \
+performed."
+}], "Usage",
+ CellChangeTimes->{{3.6653280213111105`*^9, 3.6653280510158978`*^9}, {
+  3.6653281004448247`*^9, 3.665328130055553*^9}, {3.665380366148326*^9, 
+  3.6653803662889585`*^9}},
+ CellID->982511436],
 
 Cell["XXXX", "Notes",
  CellID->1067943069]
@@ -149,7 +185,11 @@ Cell[CellGroupData[{
 Cell["See Also", "SeeAlsoSection",
  CellID->1255426704],
 
-Cell["XXXX", "SeeAlso",
+Cell[TextData[Cell[BoxData[
+ ButtonBox["FCompile",
+  BaseStyle->"Link",
+  ButtonData->"paclet:PiCbench/ref/FCompile"]], "InlineFormula"]], "SeeAlso",
+ CellChangeTimes->{{3.665380400085385*^9, 3.665380404976241*^9}},
  CellID->929782353]
 }, Open  ]],
 
@@ -161,6 +201,8 @@ Cell["More About", "MoreAboutSection",
 Cell["XXXX", "MoreAbout",
  CellID->1665078683]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -174,6 +216,217 @@ Cell[BoxData[
    }],
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151],
+
+Cell[TextData[{
+ "When a function is supplied, FCompile performs some algebraic \
+simplifications related to identity elements. These are not true identities \
+since type casting might be implied (e.g. 2*1.0 is a Real and not an \
+Integer), however, when compiling a function types should be defined by other \
+means, that is why the default behaviour removes them.\[LineSeparator]This \
+can be checked using ",
+ ButtonBox["CompilePrint",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Compile/ref/CompilePrint"],
+ "."
+}], "ExampleText",
+ CellChangeTimes->{{3.665325914362419*^9, 3.665325959996832*^9}, {
+  3.6653268413248854`*^9, 3.665326853875246*^9}, {3.665326892641071*^9, 
+  3.6653269337514615`*^9}, {3.6653269919472513`*^9, 3.6653271032834005`*^9}, {
+  3.665327163937809*^9, 3.665327182983497*^9}, {3.665327219303694*^9, 
+  3.665327223617568*^9}, {3.6653272555338297`*^9, 3.665327328067152*^9}, {
+  3.6653274053436356`*^9, 3.665327425277913*^9}},
+ CellID->236489249],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<PiCbench`Compile`\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<CompiledFunctionTools`\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.665324669658474*^9, 3.665324704504789*^9}},
+ CellLabel->"In[1]:=",
+ CellID->439773778],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "=", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", "x", "}"}], ",", 
+     RowBox[{"Total", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "*", "1.0"}], "+", "0.0"}], ")"}], "^", "2"}], "]"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.665325492950043*^9, 3.6653255078029394`*^9}, {
+  3.6653258228883595`*^9, 3.6653258242802863`*^9}},
+ CellLabel->"In[3]:=",
+ CellID->617880361],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CompilePrint", "[", 
+  RowBox[{"FCompile", "[", 
+   RowBox[{"f", ",", 
+    RowBox[{"{", "_Real", "}"}], ",", 
+    RowBox[{"{", "1", "}"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.665324714973762*^9, 3.665324763715234*^9}, {
+  3.665324862843273*^9, 3.6653248640881023`*^9}, {3.6653249057948875`*^9, 
+  3.6653249125844107`*^9}, {3.665324944517684*^9, 3.665324991512001*^9}, {
+  3.665325023095041*^9, 3.665325032875557*^9}, {3.665325534743887*^9, 
+  3.665325556261222*^9}, {3.6653258452652683`*^9, 3.6653258787966175`*^9}, {
+  3.6653269674839315`*^9, 3.665326967752112*^9}, {3.6653278781411295`*^9, 
+  3.6653278782762203`*^9}},
+ CellLabel->"In[4]:=",
+ CellID->42221063],
+
+Cell[BoxData["\<\"\\n\\t\\t1 argument\\n\\t\\t1 Integer register\\n\\t\\t1 \
+Real register\\n\\t\\t2 Tensor registers\\n\\t\\tUnderflow checking off\\n\\t\
+\\tOverflow checking off\\n\\t\\tInteger overflow checking \
+on\\n\\t\\tRuntimeAttributes -> {}\\n\\n\\t\\tT(R1)0 = A1\\n\\t\\tI0 = \
+12\\n\\t\\tResult = R0\\n\\n1\\tT(R1)1 = Square[ T(R1)0]\\n2\\tR0 = TotalAll[ \
+T(R1)1, I0]]\\n3\\tReturn\\n\"\>"], "Output",
+ CellChangeTimes->{
+  3.6653248279680386`*^9, 3.6653248670650845`*^9, 3.665324914695817*^9, {
+   3.6653249475116873`*^9, 3.6653249638645816`*^9}, 3.6653250371794243`*^9, {
+   3.665325528044423*^9, 3.6653255580834365`*^9}, {3.6653258478930173`*^9, 
+   3.6653258811051435`*^9}, 3.6653269701196866`*^9, 3.665327898951994*^9, 
+   3.6653283464753485`*^9},
+ CellLabel->"Out[4]=",
+ CellID->541136826]
+}, Open  ]],
+
+Cell[TextData[{
+ "The default behaviour can be restored with ",
+ Cell[BoxData[
+  RowBox[{"RemoveIdentities", "\[Rule]", "False"}]], "InlineFormula"],
+ "."
+}], "ExampleText",
+ CellChangeTimes->{{3.665327449068763*^9, 3.6653274647752275`*^9}, 
+   3.665327507514699*^9},
+ CellID->395180051],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CompilePrint", "[", 
+  RowBox[{"FCompile", "[", 
+   RowBox[{"f", ",", 
+    RowBox[{"{", "_Real", "}"}], ",", 
+    RowBox[{"{", "1", "}"}], ",", 
+    RowBox[{"RemoveIdentities", "\[Rule]", "False"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6653258896739707`*^9, 3.6653258901112623`*^9}, {
+  3.665326973532965*^9, 3.6653269743305316`*^9}, {3.6653278749309926`*^9, 
+  3.6653278751981697`*^9}},
+ CellLabel->"In[5]:=",
+ CellID->169327393],
+
+Cell[BoxData["\<\"\\n\\t\\t1 argument\\n\\t\\t1 Integer register\\n\\t\\t3 \
+Real registers\\n\\t\\t3 Tensor registers\\n\\t\\tUnderflow checking \
+off\\n\\t\\tOverflow checking off\\n\\t\\tInteger overflow checking \
+on\\n\\t\\tRuntimeAttributes -> {}\\n\\n\\t\\tT(R1)0 = A1\\n\\t\\tR0 = \
+1.\\n\\t\\tI0 = 12\\n\\t\\tR1 = 0.\\n\\t\\tResult = R2\\n\\n1\\tT(R1)1 = R0 * \
+T(R1)0\\n2\\tT(R1)2 = R1 + T(R1)1\\n3\\tT(R1)1 = Square[ T(R1)2]\\n4\\tR2 = \
+TotalAll[ T(R1)1, I0]]\\n5\\tReturn\\n\"\>"], "Output",
+ CellChangeTimes->{3.6653258919765043`*^9, 3.665326976397869*^9, 
+  3.665327898994022*^9, 3.6653283465063686`*^9},
+ CellLabel->"Out[5]=",
+ CellID->7722303]
+}, Open  ]],
+
+Cell["\<\
+Also note when compiling to C code this option is should NOT BE EXPECTED to \
+provide an improvement in speed, as long as the compiler should be making \
+optimizations in the code.\[LineSeparator]However, depending on the system \
+configuration it MIGHT provide an improvement.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.6653275184080057`*^9, 3.665327581459961*^9}, {
+  3.665327622356207*^9, 3.665327630922915*^9}, {3.6653277322404275`*^9, 
+  3.665327865419655*^9}},
+ CellID->663739004],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fc1", "=", 
+   RowBox[{"FCompile", "[", 
+    RowBox[{"f", ",", 
+     RowBox[{"{", "_Real", "}"}], ",", 
+     RowBox[{"{", "1", "}"}], ",", 
+     RowBox[{"CompilationTarget", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"RemoveIdentities", "\[Rule]", "False"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fc2", "=", 
+   RowBox[{"FCompile", "[", 
+    RowBox[{"f", ",", 
+     RowBox[{"{", "_Real", "}"}], ",", 
+     RowBox[{"{", "1", "}"}], ",", 
+     RowBox[{"CompilationTarget", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"RemoveIdentities", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.6653276438375187`*^9, 3.6653276535209684`*^9}, {
+  3.6653276866900787`*^9, 3.665327686747115*^9}},
+ CellLabel->"In[6]:=",
+ CellID->276794099],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"t", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"RandomReal", "[", "]"}], ",", 
+     RowBox[{"{", "1000", "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.665319549861969*^9, 3.66531960815114*^9}, {
+   3.6653235163054385`*^9, 3.66532355344318*^9}, {3.665323771745612*^9, 
+   3.6653237726842365`*^9}, 3.6653247793706636`*^9},
+ CellLabel->"In[8]:=",
+ CellID->99854179],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"fc1", "[", "t", "]"}], ";"}], ",", 
+      RowBox[{"{", "10000", "}"}]}], "]"}], ";"}], "//", "Timing"}], "//", 
+  "First"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"fc2", "[", "t", "]"}], ";"}], ",", 
+      RowBox[{"{", "10000", "}"}]}], "]"}], ";"}], "//", "Timing"}], "//", 
+  "First"}]}], "Input",
+ CellChangeTimes->{{3.665323593081586*^9, 3.6653235974134717`*^9}, 
+   3.665323704190607*^9, {3.665323739498126*^9, 3.665323740483783*^9}, {
+   3.6653247806605225`*^9, 3.6653247807325706`*^9}, {3.6653276810263042`*^9, 
+   3.6653276965486455`*^9}},
+ CellLabel->"In[9]:=",
+ CellID->428057558],
+
+Cell[BoxData["0.0625`"], "Output",
+ CellChangeTimes->{{3.665323598647293*^9, 3.665323605308729*^9}, 
+   3.6653236711295805`*^9, {3.66532370194711*^9, 3.665323708059182*^9}, 
+   3.6653237447886524`*^9, 3.6653237765478086`*^9, {3.6653276832738013`*^9, 
+   3.665327721824484*^9}, 3.665327901775876*^9, 3.6653283498756123`*^9},
+ CellLabel->"Out[9]=",
+ CellID->26516072],
+
+Cell[BoxData["0.03125`"], "Output",
+ CellChangeTimes->{{3.665323598647293*^9, 3.665323605308729*^9}, 
+   3.6653236711295805`*^9, {3.66532370194711*^9, 3.665323708059182*^9}, 
+   3.6653237447886524`*^9, 3.6653237765478086`*^9, {3.6653276832738013`*^9, 
+   3.665327721824484*^9}, 3.665327901775876*^9, 3.665328349908634*^9},
+ CellLabel->"Out[10]=",
+ CellID->301848663]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -238,5 +491,186 @@ Cell[BoxData[
 WindowSize->{700, 770},
 WindowMargins->{{4, Automatic}, {Automatic, 0}},
 CellContext->"Global`",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb"]
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "WindowsANSI"]
 ]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[12756, 432, 100, 2, 53, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 14682, 502}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 325, 14, 22, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[908, 38, 68, 1, 27, "CategorizationSection",
+ CellID->1122911449],
+Cell[979, 41, 79, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1061, 45, 81, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1145, 49, 78, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1226, 53, 74, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1337, 59, 55, 1, 17, "KeywordsSection",
+ CellID->477174294],
+Cell[1395, 62, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1477, 68, 65, 1, 17, "TemplatesSection",
+ CellID->1872225408],
+Cell[1545, 71, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1642, 75, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1727, 79, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1811, 83, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1930, 90, 53, 1, 17, "DetailsSection",
+ CellID->307771771],
+Cell[1986, 93, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2052, 97, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2124, 101, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2191, 105, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2263, 109, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2327, 113, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2391, 117, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2457, 121, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2538, 125, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2642, 132, 59, 1, 62, "ObjectName",
+ CellID->1224892054],
+Cell[2704, 135, 568, 14, 87, "Usage",
+ CellID->982511436],
+Cell[3275, 151, 42, 1, 23, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3354, 157, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[3414, 160, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3496, 166, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[3582, 169, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3677, 175, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[3745, 178, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3831, 184, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[3889, 187, 235, 5, 19, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4161, 197, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[4221, 200, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4304, 206, 356, 11, 68, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[4663, 219, 968, 18, 72, "ExampleText",
+ CellID->236489249],
+Cell[5634, 239, 284, 6, 48, "Input",
+ CellID->439773778],
+Cell[5921, 247, 476, 15, 27, "Input",
+ CellID->617880361],
+Cell[CellGroupData[{
+Cell[6422, 266, 698, 14, 27, "Input",
+ CellID->42221063],
+Cell[7123, 282, 809, 13, 349, "Output",
+ CellID->541136826]
+}, Open  ]],
+Cell[7947, 298, 287, 8, 23, "ExampleText",
+ CellID->395180051],
+Cell[CellGroupData[{
+Cell[8259, 310, 465, 11, 27, "Input",
+ CellID->169327393],
+Cell[8727, 323, 660, 10, 425, "Output",
+ CellID->7722303]
+}, Open  ]],
+Cell[9402, 336, 496, 9, 46, "ExampleText",
+ CellID->663739004],
+Cell[9901, 347, 818, 22, 88, "Input",
+ CellID->276794099],
+Cell[10722, 371, 423, 11, 27, "Input",
+ CellID->99854179],
+Cell[CellGroupData[{
+Cell[11170, 386, 800, 24, 48, "Input",
+ CellID->428057558],
+Cell[11973, 412, 365, 6, 25, "Output",
+ CellID->26516072],
+Cell[12341, 420, 366, 6, 25, "Output",
+ CellID->301848663]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12756, 432, 100, 2, 53, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[12859, 436, 125, 3, 30, "ExampleSection",
+ CellID->1293636265],
+Cell[12987, 441, 148, 3, 18, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[13160, 448, 127, 3, 18, "ExampleSection",
+ CellID->2061341341],
+Cell[13290, 453, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[13423, 458, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[13568, 464, 131, 3, 18, "ExampleSection",
+ CellID->258228157],
+Cell[13702, 469, 142, 3, 18, "ExampleSection",
+ CellID->2123667759],
+Cell[13847, 474, 135, 3, 18, "ExampleSection",
+ CellID->1305812373],
+Cell[13985, 479, 140, 3, 18, "ExampleSection",
+ CellID->1653164318],
+Cell[14128, 484, 132, 3, 18, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
