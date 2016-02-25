@@ -2,8 +2,8 @@
 
 BeginPackage["PiCbench`Compile`"]
 RemoveIdentities::usage="RemoveIdentities is a boolean option for FCompile which sets whether some elementary algebraic simplifications are performed."
-FCompile::usage="FCompile(f,types,ranks, addedAsumptions) compiles the function f assuming arguments have given types and ranks."
-BenchmarkFCompile::usage="BenchmarkFCompile({f,types,ranks, addedAsumptions},args,times) bencharmks different compilation methods returning the mean AbsoluteTiming of calling the compiled function with args the given times."
+FCompile::usage="FCompile[f,types,ranks, addedAsumptions] compiles the function f assuming arguments have given types and ranks."
+BenchmarkFCompile::usage="BenchmarkFCompile[{f,types,ranks, addedAsumptions},args,times] bencharmks different compilation methods returning the mean AbsoluteTiming of calling the compiled function with args the given times."
 
 
 Begin["`Private`"] (* Begin Private Context *) 
