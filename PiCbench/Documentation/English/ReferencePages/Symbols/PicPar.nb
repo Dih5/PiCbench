@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     21660,        781]
-NotebookOptionsPosition[     16809,        606]
-NotebookOutlinePosition[     17432,        630]
-CellTagsIndexPosition[     17353,        625]
+NotebookDataLength[     21778,        784]
+NotebookOptionsPosition[     16926,        609]
+NotebookOutlinePosition[     17549,        633]
+CellTagsIndexPosition[     17470,        628]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -257,7 +257,7 @@ Cell[BoxData[
       "0.0004`", "\<\"Charge of a macroparticle (absolute value)\"\>"},
      {"\<\"mp\"\>", "0.0004`", "\<\"Mass of electron macroparticle\"\>"},
      {"\<\"np\"\>", "3000", "\<\"Number of particles\"\>"},
-     {"\<\"ionMass\"\>", 
+     {"\<\"ionRelMass\"\>", 
       "1836.15267`", "\<\"Relative mass of ion species/mass of electrons\"\>"},
      {"\<\"dt\"\>", "1", "\<\"Temporal step\"\>"},
      {"\<\"a\"\>", "1", "\<\"Charge dimenssion in the Maxwell equations\"\>"},
@@ -296,9 +296,10 @@ magnitude)\"\>"},
    BoxForm`e$, 
     TableHeadings -> {
      None, {"Variable", "Value", "Description"}}]]]], "Output",
- CellChangeTimes->{3.665382008271843*^9, 3.6653823737055054`*^9},
+ CellChangeTimes->{3.665382008271843*^9, 3.6653823737055054`*^9, 
+  3.6654052236409855`*^9},
  CellLabel->"Out[2]//TableForm=",
- CellID->654930257]
+ CellID->135745754]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -310,9 +311,10 @@ Cell[BoxData[
  CellID->245082688],
 
 Cell[BoxData["3000"], "Output",
- CellChangeTimes->{3.6653820200070868`*^9, 3.665382373736759*^9},
+ CellChangeTimes->{3.6653820200070868`*^9, 3.665382373736759*^9, 
+  3.6654052236722374`*^9},
  CellLabel->"Out[3]=",
- CellID->249170903]
+ CellID->38931300]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -326,9 +328,9 @@ Cell[BoxData[
 
 Cell[BoxData["\<\"Number of particles\"\>"], "Output",
  CellChangeTimes->{{3.665382204116007*^9, 3.665382209265362*^9}, 
-   3.6653823737680087`*^9},
+   3.6653823737680087`*^9, 3.6654052236878633`*^9},
  CellLabel->"Out[4]=",
- CellID->695053853]
+ CellID->761223072]
 }, Open  ]]
 }, Open  ]],
 
@@ -416,7 +418,7 @@ Cell[BoxData[
          FractionBox[
           RowBox[{"PicPar", "[", "\<\"charSpeed\"\>", "]"}], 
           SqrtBox[
-           RowBox[{"PicPar", "[", "\<\"ionMass\"\>", "]"}]]]}]},
+           RowBox[{"PicPar", "[", "\<\"ionRelMass\"\>", "]"}]]]}]},
        {" "},
        {
         RowBox[{
@@ -435,7 +437,7 @@ Cell[BoxData[
        {" "},
        {
         RowBox[{
-         RowBox[{"PicPar", "[", "\<\"ionMass\"\>", "]"}], "=", 
+         RowBox[{"PicPar", "[", "\<\"ionRelMass\"\>", "]"}], "=", 
          "1836.15267`"}]},
        {" "},
        {
@@ -529,7 +531,7 @@ magnitude)\"\>"}]},
        {
         RowBox[{
          RowBox[{"PicPar", "[", 
-          RowBox[{"\<\"ionMass\"\>", ",", "\<\"Description\"\>"}], "]"}], 
+          RowBox[{"\<\"ionRelMass\"\>", ",", "\<\"Description\"\>"}], "]"}], 
          "=", "\<\"Relative mass of ion species/mass of electrons\"\>"}]},
        {" "},
        {
@@ -582,9 +584,10 @@ magnitude)\"\>"}]},
      "RowsIndexed" -> {}}],
   Definition[PiCbench`Parameters`PicPar],
   Editable->False]], "Output",
- CellChangeTimes->{3.665381985206688*^9, 3.665382373893015*^9},
+ CellChangeTimes->{3.665381985206688*^9, 3.665382373893015*^9, 
+  3.6654052237972455`*^9},
  CellLabel->"Out[1]=",
- CellID->10316091]
+ CellID->211012011]
 }, Open  ]]
 }, Open  ]],
 
@@ -604,7 +607,7 @@ Cell[BoxData[
  CellID->589267740]
 }, Open  ]]
 },
-WindowSize->{700, 725},
+WindowSize->{700, 709},
 WindowMargins->{{4, Automatic}, {Automatic, 0}},
 CellContext->"Global`",
 FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
@@ -617,14 +620,14 @@ StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb",
 (*CellTagsOutline
 CellTagsIndex->{
  "ExtendedExamples"->{
-  Cell[8470, 336, 100, 2, 53, "ExtendedExamplesSection",
+  Cell[8550, 338, 100, 2, 53, "ExtendedExamplesSection",
    CellTags->"ExtendedExamples",
    CellID->1854448968]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 17215, 618}
+ {"ExtendedExamples", 17332, 621}
  }
 *)
 (*NotebookFileOutline
@@ -730,57 +733,57 @@ Cell[4947, 230, 117, 3, 27, "Input",
 Cell[CellGroupData[{
 Cell[5089, 237, 181, 4, 27, "Input",
  CellID->98300611],
-Cell[5273, 243, 2339, 57, 248, "Output",
- CellID->654930257]
+Cell[5273, 243, 2369, 58, 248, "Output",
+ CellID->135745754]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7649, 305, 179, 4, 27, "Input",
+Cell[7679, 306, 179, 4, 27, "Input",
  CellID->245082688],
-Cell[7831, 311, 140, 3, 25, "Output",
- CellID->249170903]
+Cell[7861, 312, 166, 4, 25, "Output",
+ CellID->38931300]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8008, 319, 219, 5, 27, "Input",
+Cell[8064, 321, 219, 5, 27, "Input",
  CellID->74338199],
-Cell[8230, 326, 191, 4, 25, "Output",
- CellID->695053853]
+Cell[8286, 328, 215, 4, 25, "Output",
+ CellID->761223072]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8470, 336, 100, 2, 53, "ExtendedExamplesSection",
+Cell[8550, 338, 100, 2, 53, "ExtendedExamplesSection",
  CellTags->"ExtendedExamples",
  CellID->1854448968],
-Cell[8573, 340, 125, 3, 30, "ExampleSection",
+Cell[8653, 342, 125, 3, 30, "ExampleSection",
  CellID->1293636265],
-Cell[8701, 345, 148, 3, 18, "ExampleSection",
+Cell[8781, 347, 148, 3, 18, "ExampleSection",
  CellID->1020263627],
 Cell[CellGroupData[{
-Cell[8874, 352, 127, 3, 18, "ExampleSection",
+Cell[8954, 354, 127, 3, 18, "ExampleSection",
  CellID->2061341341],
-Cell[9004, 357, 130, 3, 70, "ExampleSubsection",
+Cell[9084, 359, 130, 3, 70, "ExampleSubsection",
  CellID->1757724783],
-Cell[9137, 362, 130, 3, 70, "ExampleSubsection",
+Cell[9217, 364, 130, 3, 70, "ExampleSubsection",
  CellID->1295379749]
 }, Closed]],
-Cell[9282, 368, 131, 3, 18, "ExampleSection",
+Cell[9362, 370, 131, 3, 18, "ExampleSection",
  CellID->258228157],
 Cell[CellGroupData[{
-Cell[9438, 375, 142, 3, 18, "ExampleSection",
+Cell[9518, 377, 142, 3, 18, "ExampleSection",
  CellID->2123667759],
-Cell[9583, 380, 198, 3, 20, "ExampleText",
+Cell[9663, 382, 198, 3, 20, "ExampleText",
  CellID->250122957],
 Cell[CellGroupData[{
-Cell[9806, 387, 178, 4, 27, "Input",
+Cell[9886, 389, 178, 4, 27, "Input",
  CellID->54066714],
-Cell[9987, 393, 6366, 193, 1049, "Output",
- CellID->10316091]
+Cell[10067, 395, 6403, 194, 1049, "Output",
+ CellID->211012011]
 }, Open  ]]
 }, Open  ]],
-Cell[16380, 590, 135, 3, 30, "ExampleSection",
+Cell[16497, 593, 135, 3, 30, "ExampleSection",
  CellID->1305812373],
-Cell[16518, 595, 140, 3, 18, "ExampleSection",
+Cell[16635, 598, 140, 3, 18, "ExampleSection",
  CellID->1653164318],
-Cell[16661, 600, 132, 3, 18, "ExampleSection",
+Cell[16778, 603, 132, 3, 18, "ExampleSection",
  CellID->589267740]
 }, Open  ]]
 }
