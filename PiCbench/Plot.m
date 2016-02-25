@@ -5,7 +5,7 @@ BeginPackage["PiCbench`Plot`",{"PiCbench`Parameters`"}]
 PhaseSpacePlot::usage="Plot some lists of particles in the phase space.";
 SmoothPhaseSpacePlot::usage="Plot a smooth kernel distribution of the phase space of the list of particles.";
 
-DebyeMovingAverage::usage="DebyeMovingAverage[particle,factor:1] calculates the moving average using blocks of Floor[factor*$debyeLength] cells.";
+DebyeMovingAverage::usage="DebyeMovingAverage[list,factor:1] calculates the moving average of the list using blocks of Floor[factor*debyeLength] cells. The result is returned as a list of coordinates in the plane.";
 
 Begin["`Private`"] (* Begin Private Context *) 
 
@@ -25,8 +25,8 @@ SmoothPhaseSpacePlot[particles_, opts : OptionsPattern[]] :=
     FrameLabel -> {"x", "v"}, PlotRange -> All]]
     
 Options[DebyeMovingAverage]:={PicParameters->PicPar}
-DebyeMovingAverage[particle_,factor_:1,opts : OptionsPattern[]]:=Block[{p},p=OptionValue[PicParameters];
-	MovingAverage[particle, Max[Floor[factor*p["debyeLength"]],1]]
+DebyeMovingAverage[lst_,factor_:1,opts : OptionsPattern[]]:=Block[{p},p=OptionValue[PicParameters];
+	Transpose[{MovingAverage[Range[Length[lst]], Max[Floor[factor*p["debyeLength"]],1]],MovingAverage[lst, Max[Floor[factor*p["debyeLength"]],1]]}]
 ]
   
 End[] (* End Private Context *)
