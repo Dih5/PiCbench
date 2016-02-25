@@ -20,7 +20,7 @@ PicPar["nx","Description"]="Number of cells";
 PicPar["qp","Description"]="Charge of a macroparticle (absolute value)";
 PicPar["mp","Description"]="Mass of electron macroparticle";
 PicPar["np","Description"]="Number of particles";
-PicPar["ionMass","Description"]="Relative mass of ion species/mass of electrons";
+PicPar["ionRelMass","Description"]="Relative mass of ion species/mass of electrons";
 PicPar["dt","Description"]="Temporal step";
 PicPar["a","Description"]="Charge dimenssion in the Maxwell equations";
 PicPar["b","Description"]="Relative dimension of the magnetic field in the maxwell equations";
@@ -38,7 +38,7 @@ PicPar["nx"]=1024;
 PicPar["qp"]=4.0*^-4;
 PicPar["mp"]=4.0*^-4;
 PicPar["np"]=3000;
-PicPar["ionMass"]=1836.15267;
+PicPar["ionRelMass"]=1836.15267;
 PicPar["dt"]=1;
 PicPar["a"]=1;
 PicPar["b"]=1;
@@ -46,7 +46,7 @@ PicPar["c"]=1;
 PicPar["charSpeed"]=0.5;(*Note this is used to estimate adequateness. Particles must be initializated according to this to work*)
 
 (*Derived*)
-PicPar["charSpeedIons"] := PicPar["charSpeed"]/Sqrt[PicPar["ionMass"]];
+PicPar["charSpeedIons"] := PicPar["charSpeed"]/Sqrt[PicPar["ionRelMass"]];
 PicPar["lx"] := PicPar["dx"]*PicPar["nx"];
 PicPar["wp"] := Sqrt[PicPar["np"]/PicPar["lx"]*PicPar["qp"]^2/PicPar["mp"]*PicPar["a"]];
 PicPar["debyeLength"] := PicPar["charSpeed"]/PicPar["wp"];
@@ -72,7 +72,7 @@ PrintAroundCondition[name_String, t1_, t2_] :=
 
 MagnitudeList[]:=MagnitudeList[PicPar]
 MagnitudeList[PicPar_]:=TableForm[{#, PicPar[#], PicPar[#, "Description"]} & /@ {"dx", "nx", 
-   "qp", "mp", "np", "ionMass", "dt", "a", "b", "c", "charSpeed", 
+   "qp", "mp", "np", "ionRelMass", "dt", "a", "b", "c", "charSpeed", 
    "charSpeedIons", "lx", "wp", "debyeLength"}, 
  TableHeadings -> {None, {"Variable", "Value", "Description"}}]
 
