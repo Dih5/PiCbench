@@ -9,10 +9,13 @@ DebyeMovingAverage::usage="DebyeMovingAverage[list,factor:1] calculates the movi
 
 Begin["`Private`"] (* Begin Private Context *) 
 
-Options[PhaseSpacePlot] := Options[ListPlot];
+
+Options[PhaseSpacePlot] := Union[Options[ListPlot],{PicParameters->PicPar}];
 PhaseSpacePlot[particleLists_, opts : OptionsPattern[]] :=
-    ListPlot[particleLists, opts, AxesLabel -> {"x", "v"}, 
-     PlotLabel -> "Particle Phase Space"]
+ Block[{p},p=OptionValue[PicParameters];  
+   ListPlot[particleLists, opts, AxesLabel -> {"x", "v"}, 
+     PlotLabel -> "Particle Phase Space",PlotRange -> {{0, p["lx"]}, Automatic}]]
+   
 
 
 Options[SmoothPhaseSpacePlot] := Union[Options[ContourPlot],{PicParameters->PicPar}];
