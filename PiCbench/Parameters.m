@@ -12,7 +12,6 @@ PrintConditions::usage="Print a priori scale conditions on the PiC magnitudes"
 
 Begin["`Private`"]
 
-(*TODO: add options to override values on call*)
 CreatePicPar[PicPar_]:=Block[{},
 (*Descriptions*)
 PicPar["dx","Description"]="Length of cell size in the x dimension";
