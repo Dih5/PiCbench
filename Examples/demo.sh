@@ -17,10 +17,10 @@ getE = FCompile[GetE1D[], {_Real}, {1}, {{Re[__], _Real, 1}},
   CompilationTarget -> "C", RuntimeOptions -> "Speed"];
   
 stepElectrons = 
-  FCompile[StepParticles1DES[-1], {_Real, _Real}, {1, 2}, 
+  FCompile[StepParticles1DES[], {_Real, _Real}, {1, 2}, 
    CompilationTarget -> "C", RuntimeOptions -> "Speed"];
 stepIons = 
-  FCompile[StepParticles1DES[1/PicPar["ionMass"]], {_Real, _Real}, {1, 2}, 
+  FCompile[StepParticles1DES[UseIonDefaults -> True], {_Real, _Real}, {1, 2}, 
    CompilationTarget -> "C", RuntimeOptions -> "Speed"];
    ]];
    
