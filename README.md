@@ -2,7 +2,7 @@
 
 [![release v0.1.0](http://img.shields.io/badge/release-v0.1.0-yellow.svg)](https://github.com/dih5/PiCbench/releases/latest)
 [![Semantic Versioning](https://img.shields.io/badge/SemVer-2.0.0-brightgreen.svg)](http://semver.org/spec/v2.0.0.html)
-[![license GNU GPLv3](https://img.shields.io/badge/license-GNU%20GPLv3License-brightgreen.svg)](https://github.com/dih5/PiCbench/blob/master/LICENSE.txt)
+[![license GNU GPLv3](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](https://raw.githubusercontent.com/Dih5/PiCbench/master/LICENSE.txt)
 [![Mathematica 9.0 10.0](https://img.shields.io/badge/Mathematica-9.0_10.0-brightgreen.svg)](#compatibility)
 
 
