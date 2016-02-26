@@ -88,7 +88,7 @@ It will probably work in Mathematica 6.0+, but it has not been tested. If you do
 ## License
 
 This package is released under
-[the GNU GPLv3 license](https://github.com/dih5/PiCbench/master/LICENSE.txt).
+[the GNU GPLv3 license](https://raw.githubusercontent.com/Dih5/PiCbench/master/LICENSE.txt).
 
 
 
