@@ -20,7 +20,7 @@ GetE1D[opts : OptionsPattern[]] :=
    f[opts], {f -> 
      Switch[OptionValue[Method], "Fourier", GetE1DFourier, 
       "Fourier-diff", GetE1DFourierDiff, _, 
-      Message[getRho1D::bdmtd, OptionValue[Method]]; GetE1DFourier]
+      Message[GetE1D::bdmtd, OptionValue[Method]]; GetE1DFourier]
     }]]
     
 GetE1DFourier[opts : OptionsPattern[]] := 
