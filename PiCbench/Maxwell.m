@@ -2,7 +2,7 @@ BeginPackage["PiCbench`Maxwell`", { "PiCbench`Parameters`"}]
 
 (*TODO: Add Finite Element solving.*)
 GetE1D::usage="GetE1D[] returns a function that calculates E(rho).
-Relevant parameters are nx, a.
+Relevant parameters are nx, dx, a.
 Available Methods are Fourier and Fourier-diff.";
 
 Begin["`Private`"] (* Begin Private Context *) 
@@ -26,22 +26,22 @@ GetE1D[opts : OptionsPattern[]] :=
 GetE1DFourier[opts : OptionsPattern[]] := 
  Block[{p=OptionValue[PicParameters],kFactor, a, nx,i}, nx = p["nx"]; 
   ReplaceAll[Function[{rho}, Block[{EFourier},
-     EFourier = {0.0} ~Join~ (Drop[Fourier[rho], 1]*Drop[kFactor]*(I));
+     EFourier = {0.0} ~Join~ (Drop[Fourier[rho], 1]*kFactor*(I));
      Re[InverseFourier[a* EFourier]]
      ]], {kFactor -> 
-     Table[(Sin[ 2 \[Pi] i/ nx]/(2.0 Sin[ \[Pi] i/ nx])^2), {i, 
+     Table[(Sin[ 2 Pi i/ nx]/(2.0 Sin[ Pi i/ nx])^2*p["dx"]), {i, 
        1, nx - 1}], a -> p["a"]}]]
        
 GetE1DFourierDiff[opts : OptionsPattern[]] := 
- Block[{p=OptionValue[PicParameters],k2, a, nx,i}, nx = p["nx"]; 
+ Block[{p=OptionValue[PicParameters],k2, a, nx, dx, i}, nx = p["nx"]; 
   ReplaceAll[Function[{rho}, Block[{\[CapitalPhi], re},
      \[CapitalPhi] = {0.0} ~
        Join~ (Drop[Fourier[rho], 1]/Drop[k2, 1]);
      re = Re[InverseFourier[a \[CapitalPhi]]];
-     (RotateRight[re] - RotateLeft[re])/2
+     (RotateRight[re] - RotateLeft[re])/2/dx
      ]], {k2 -> 
-     Table[(2.0 Sin[ \[Pi] i/ nx])^2, {i, 0, nx - 1}], 
-    a -> p["a"]}]]
+     Table[(2.0 Sin[ Pi i/ nx] / p["dx"])^2, {i, 0, nx - 1}], 
+    a -> p["a"],dx -> p["dx"]}]]
 End[] (* End Private Context *)
 
 EndPackage[]
