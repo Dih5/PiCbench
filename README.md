@@ -62,7 +62,7 @@ To load the PiCbench package evaluate: ``Needs["PiCbench`"]``.
 
 To use package directly from the Web, without installation, evaluate:
 ```Mathematica
-Get["https://raw.githubusercontent.com/dih5/PiCbench/master/PiCbench/PiCbench.m"]
+Get["https://raw.githubusercontent.com/dih5/PiCbench/master/PiCbench/" <> # <> ".m"] & /@ {"Parameters", "Initialization", "Plot", "Compile", "Particle2Grid", "Maxwell", "Mover", "PiCbench"}
 ```
 
 Note that with this method of initialization
